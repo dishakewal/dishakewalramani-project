@@ -1,0 +1,119 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  --> 
+    <!-- header -->
+
+    <!-- end header -->
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="titlepage">
+                        <h2> Cart</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+   <center> <!-- contact -->
+    <div class="View Details">
+        <div class="container">
+              {% if msg %}
+                         <b><p style="color:blue;">{{msg}}</p></b>
+            {% endif %}
+               {% if cart %}
+                    <center><h2 >Total qty: {{cart.count}}</h2>
+                        <form name="pay" method="POST" action="{% url 'pay' %}">
+                            {% csrf_token %}
+                    
+                        <input  type="hidden" name="amount" value="{{net_price}}">
+                        <h3>Net price: {{net_price}} &nbsp;&nbsp;&nbsp;&nbsp;<input style="border-color: blue;color: white;background-color:red" type="submit"  value="Checkout"></h3>
+                    </center>
+                    </form>
+                  {% else %}
+                      <center><h1>no item found </h1></center>
+                  {% endif %}
+
+                 <div class="row">
+                    {% for i in cart %}
+                        <div id="box" class="col-sm-3" style="margin-top: 50px;">
+                            <div class="container">
+                                <div class="card" style="width:250px">
+                                    <img src="{{i.blood.blood_image.url}}" class="card-img-top" width=200px height=200pxs>
+                                        <div class="card-body">
+                                                 <b class="card-title">Blood Group: {{i.blood.blood_group}} </b><br><br>
+
+                                                <b class="card-text">Blood price: {{i.price}} </b><br><br>
+
+                                                <b class="card-text">Blood qty: 
+                                            <form name="change_qty" method="POST" action="{%url 'change_qty' pk=i.pk%}"> 
+                                                {% csrf_token %}
+                                                     <input type="number" name="qty" value="{{i.qty}}" min="1" max="9" onchange="this.form.submit();"></b><br><br> 
+                                            </form>
+                                                    <b class="card-text">Total price: {{i.total_price}} </b>
+                                            
+                                            <a style="border-color: blue;color: white;background-color: red" href="{% url 'user_moredetails' pk=i.blood.pk %}" class="btn btn-primary">More Details</a>
+                                        </div>
+                                </div>
+                             </div>
+                         </div>
+                     {% endfor %}
+                 </div>
+            </div>
+        </div>
+    </div>
+    </center>    <!-- end contact -->
+
+   
+     <div class="menu-bottom">
+     <li> <a href="{% url 'home' %}"></a></li>
+    </div>
+               
+    <!-- end footer -->
+    <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function() {
+
+                $(this).addClass('transition');
+            }, function() {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+{% endblock %}

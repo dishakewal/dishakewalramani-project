@@ -1,0 +1,136 @@
+{% extends 'sellerheader.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  --> 
+    <!-- header -->
+
+    <!-- end header -->
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Sign up</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- contact -->
+    <div class="sign up">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% if msg %}
+                         <b><p style="color:blue;">{{msg}}</p></b>
+                     {% endif %}
+                  <form name="Signup" method="POST" action="{% url 'sellersignup' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                         <table>
+                                <tr>
+                                    <td>usertype</td>
+                                    <td><input  style="border-color:red" type="radio" name="usertype" value="user">User &nbsp;&nbsp; &nbsp;
+                                    <input  style="border-color:red" type="radio" name="usertype" value="seller">Seller</td>&nbsp;&nbsp;&nbsp;
+
+                                <tr>
+                                    <td>First Name</td>
+                                    <td><input style="border-color:red" type="text" name="fname"></td>
+                                </tr>
+                                    <tr>
+                                    <td>Last Name</td>
+                                    <td><input style="border-color:red" type="text" name="lname"></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><input  style="border-color:red" type="text" name="email"></td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile</td>
+                                    <td><input style="border-color:red" type="text" name="mobile"></td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td><textarea style="border-color:red" rows="5" cols="22" name="address"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td><input style="border-color:red" type="radio" name="gender" value="male">Male &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input style="border-color:red" type ="radio" name="gender" value="Female">Female &nbsp;&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td>
+                                    <td><input  style="border-color:red" type="text" name="password"></td>
+                                </tr>
+                                <tr>
+                                    <td>Confirm Password</td>
+                                    <td><input style="border-color:red" type="text" name="cpassword"></td>
+                                </tr>
+                                <tr>
+                                    <td>Image</td>
+                                    <td><input  type="file" name="image"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <input style="background-color:red;border-color:blue;color: white" type="submit" name="action" value="Sign up" class="btn ">
+                                    </td>
+                                    
+                                </tr>
+                         </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end contact -->
+
+    <!-- footer -->
+<div class="menu-bottom">
+      <li> <a href="{% url 'sellerhome' %}">Home</a></li>
+</div>
+    <!-- end footer -->
+    <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function() {
+
+                $(this).addClass('transition');
+            }, function() {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+{% endblock %}

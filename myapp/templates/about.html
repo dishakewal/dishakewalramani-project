@@ -1,0 +1,134 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+   
+
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    
+    <!-- end header -->
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>About</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- about -->
+    <div class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
+                    <div class="about_bg">
+                        <div class="about"><img src="{% static 'images/about.gif' %}" alt="#" /></div>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
+                    <div class="about_box">
+                        <span>Share Blood</span>
+                        <b><p>Blood donation is required during an organ transplant, accidents, cancer treatment etc. For blood donation, one needs to check for a donation camp or needs to visit blood bank. The Manual Blood donation system has many disadvantages which includes, it is too time consuming, often leads to error prone results, consumes lot of manpower, lacks donor information, retrieval of data takes a lot of time, percentage of accuracy is less. In the time of emergency, it becomes difficult to approach the right donor. Rare blood groups are not available all the time at all blood banks and recipients find difficulties to track the right blood donor. To overcome this problem, our  Projects has proposed a system. There are many blood donation management systems, but these systems only maintain the information of blood banks with Right donors . But Share Blood  projects has proposed a system which not only maintains the information of blood banks, but also maintains information about w=the blood group who can give & Recieve it , which makes blood transfusion process easier.</p></b>
+
+
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- end about -->
+
+    <!-- footer -->
+
+<footer>
+        <div id="contact" class="footer">
+            <div class="container">
+                <div class="row pdn-top-30">
+                    <div class="col-md-12 ">
+                        <div class="footer-box">
+                            <div class="headinga">
+                                <h3>Address</h3>
+                                <span>Healing Center, 176 W Streetname,New York, NY 10014, US</span>
+                                <p>(+71) 8522369417
+                                    <br>demo@gmail.com</p>
+                            </div>
+                            <ul class="location_icon">
+                                <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+
+                            </ul>
+                            <div class="menu-bottom">
+                                <ul class="link">
+                                    <li> <a href="/">Home</a></li>
+                                    <li> <a href="{% url 'about' %}">About</a></li>
+                                
+                                   
+                                   
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p>© 2019 All Rights Reserved. Design By<a href="https://html.design/"> Free Html Templates</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>                        
+                       
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function() {
+
+                $(this).addClass('transition');
+            }, function() {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+    </head>
+</body>
+
+</html>
+{% endblock %}

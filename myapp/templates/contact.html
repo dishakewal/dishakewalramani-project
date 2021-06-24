@@ -1,0 +1,100 @@
+
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  --> 
+    <!-- header -->
+
+    <!-- end header -->
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Contact Us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- contact -->
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% if msg %}
+                         <b><p style="color:blue;">{{msg}}</p></b>
+                     {% endif %}
+                    <form name="contact" method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="Name" type="text" name="name">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="Email" type="text" name="email">
+                            </div>
+                            <div class=" col-md-12">
+                                <input class="form-control" placeholder="Mobile" type="text" name="mobile">
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="textarea" placeholder="Remarks" name="remarks"></textarea>
+                            </div>
+                            <div class=" col-md-12">
+                                <button input type="submit" name="action"  class="btn ">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end contact -->
+
+    <!-- footer -->
+
+    <!-- end footer -->
+    <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function() {
+
+                $(this).addClass('transition');
+            }, function() {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+{% endblock %}

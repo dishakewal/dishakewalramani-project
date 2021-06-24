@@ -1,0 +1,125 @@
+{% extends 'sellerheader.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  --> 
+    <!-- header -->
+
+    <!-- end header -->
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="titlepage">
+                       <h2>Edit Details</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+   <center> <!-- contact -->
+    <div class="change password">
+        <div class="container">
+             <div class="row">
+                <div class="col-md-12">
+                    {% if msg %}
+                         <b><p style="color:blue;">{{msg}}</p></b>
+                    {% endif %}
+                         <form name="Add Details" method="POST" action="{% url 'seller_Editdetails' pk=blood.pk %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                 <table>
+                                    <tr>
+                                        <td>Blood Bank</td>
+                                        <td><input style="border-color: blue" type="text" name="blood_bank" value="{{blood.blood_bank}}" value="readonly"></td>
+                                    </tr>
+                                        
+
+                                    <tr>
+                                        <td>Blood Group</td>
+                                        <td><input style="border-color: blue" type="text" name="blood_group" value="{{blood.blood_group}}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Blood price</td>
+                                        <td><input  style="border-color: blue" type="text" name="blood_price" value="{{blood.blood_price}}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Blood quantity</td>
+                                        <td><input style="border-color: blue" type="text" name="blood_quantity" value="{{blood.blood_quantity}}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Blood Description</td>
+                                        <td><textarea style="border-color: blue" rows="5" cols="22" name="blood_description">{{blood.blood_description}}</textarea></td>
+                                    </tr>
+
+                                        <tr>
+                                            <td colspan="22" align="center">
+                                                <img src="{{blood.blood_image.url}}" width="50px" height="50px">
+                                        </tr>
+                                    <tr>
+                                        <td>Book Image</td>
+                                        <td><input  type="file" name="blood_image"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <input style="border-color: blue;color: white;background-color: red" type="submit" name="action" value="Update books" class="btn ">
+                                        </td>
+                                        
+                                    </tr>
+                            </table>
+                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>    <!-- end contact -->
+
+<div class="menu-bottom">
+     <li> <a href="{% url 'sellerhome' %}">Home</a></li>
+ </div>
+               
+    <!-- end footer -->
+    <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function() {
+
+                $(this).addClass('transition');
+            }, function() {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  --> 
+    <!-- header -->
+
+    <!-- end header -->
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Forgot Password</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- contact -->
+    <div class="login">
+        <div class="container">
+             
+            <div class="row">
+                <div class="col-md-12">
+                    {% if msg %}
+                         <b><p style="color:blue;">{{msg}}</p></b>
+                    {% endif %}
+                         <form name="forgot_passwd" method="POST" action="{% url 'forgot_passwd' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                    <input class="form-control" placeholder="Email" type="text" name="email">
+                                </div>
+
+                             <div class=" col-md-12">
+                                <button input type="submit" name="action"  class="btn ">Send otp</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end contact -->
+
+ <div class="menu-bottom">
+      <li> <a href="/">Home</a></li>
+</div>
+    <!-- end footer -->
+    <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function() {
+
+                $(this).addClass('transition');
+            }, function() {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+{% endblock %}

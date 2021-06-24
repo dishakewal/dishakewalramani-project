@@ -1,0 +1,100 @@
+{% extends 'sellerheader.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  --> 
+    <!-- header -->
+
+    <!-- end header -->
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="titlepage">
+                        <h2>More Details</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+   <center> <!-- contact -->
+    <div class="View Details">
+        <div class="container">
+            <div class="row">
+                <div id="box" class="col-sm-3" style="margin-top: 50px;">
+                    <div class="container">
+                        <div class="card" style="width:250px">
+                            <img src="{{blood.blood_image.url}}" class="card-img-top" width=200px height=200pxs>
+                                <div class="card-body" >
+                                    <b class="card-title">Blood Group: {{blood.blood_group}}</b>
+                                    <br><br>
+                                    <b class="card-text">Blood price: {{blood.blood_price}}</b>
+                                    <br><br>
+                                    <b class="card-text">Blood quantity: {{blood.blood_quantity}}</b><br><br>
+                                    <b class="card-text">Blood description: 
+                                    {{blood.blood_description}}</b><br><br>
+
+
+                                     <a  style="border-color: blue;color: white;background-color: red" href="{% url 'seller_Editdetails' pk=blood.pk %}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                     
+                                     <a  style="border-color: blue;color: white;background-color: red" href="{% url 'seller_Deletedetails' pk=blood.pk %}" class="btn btn-primary">Delete</a>
+                                </div>
+                         </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+        </div>
+    </center>    <!-- end contact -->
+
+   
+     <div class="menu-bottom">
+     <li> <a href="{% url 'sellerhome' %}">Home</a></li>
+    </div>
+               
+    <!-- end footer -->
+    <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="{% static 'https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function() {
+
+                $(this).addClass('transition');
+            }, function() {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+{% endblock %}
